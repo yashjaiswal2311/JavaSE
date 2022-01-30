@@ -1,0 +1,35 @@
+//We can never override static methods in java and this is also known as 'Method Hiding'
+
+class Parent
+{
+    static void m1()
+    {
+        System.out.println("Parent class m1 method");
+    }
+}
+class Child extends Parent
+{
+    static void m1()
+    {
+        System.out.println("Child class m1 method");
+    }
+    public static void main(String[] args)
+    {
+		//Parent p = new Child();
+		//p.m1();
+		Parent p = new Parent();
+		p.m1();
+		Child c  = new Child();
+		c.m1();
+    }
+}
+//NO OVERRIDING
+
+/*[if reference variable is of type parent and object is of type Child then we can call only those methods
+	using parent class reference variable which are
+	(1)Present in parent class
+	(2)Present in both the classes
+   But if method is present only in Child class then we can't access it using parent class reference variable
+   ]
+   (if you want to access those method then you have to convert parent class reference variable into Child 
+   type by TYPE CASTING)*/
